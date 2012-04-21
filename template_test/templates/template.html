@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block extra-header %}{% endblock extra-header %}
+  </head>
+  <body{% block body-class %} class="template-normal"{% endblock body-class %}>
+    {% block wrapper %}
+    {% block header-wrapper %}
+    <div class="navbar{% block navbar-class %} navbar-fixed-top{% endblock  %}">
+        {% block header-nav %}
+	    {% endblock header-nav %}
+    </div>
+    {% endblock header-wrapper %}
+    {% block content-wrapper %}
+    <div class="{% block content-container-class %}container{% endblock content-container-class %}">
+        {% block content-message %}
+	    {% if messages %}
+            {% for message in messages %}
+            <div class="{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endblock content-message %}
+        {% block content-block %}
+        <div class="block">
+            <div class="block_head">
+                <h1>{% block content-title %}{% endblock content-title %}</h1>
+            </div>
+            <div class="block_content">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        {% endblock content-block %}
+    </div> <!-- /container -->
+    {% block extra-content-block %}{% endblock extra-content-block %}
+    {% endblock content-wrapper %}
+    {% block footer-wrapper %}
+    <footer class="footer">
+        <div class="container">{% block footer %}{% endblock footer %}</div>
+    </footer>
+    {% endblock footer-wrapper %}
+    {% endblock wrapper %}
+    {% block extra-js %}{% endblock extra-js %}
+  </body>
+</html>

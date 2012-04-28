@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+
+{% block content-block %}
+  {% block sidebar-block %}
+  <div class="sidebar">
+		{% block sidebar %}{% endblock sidebar %}
+  </div>
+  {% endblock sidebar-block %}
+  {% block main-block %}
+  <div class="main">
+      <div class="block_head">
+          <h1>{% block content-title %}{% endblock content-title %}</h1>
+      </div>
+      <div class="block_content">
+          {% block content %}{% endblock content %}
+      </div>
+  </div><!--/span-->
+  {% endblock main-block %}
+</div><!--/row-->
+{% endblock content-block %}

@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="django-template-test",
-    version="0.1",
+    version="0.1.1",
     license='BSD',
     description="A basic django template used for testing.",
     author='Ivan Diao',
